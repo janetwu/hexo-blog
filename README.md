@@ -1,2 +1,1 @@
-＃个人博客存档
-＃＃A simple style hexo theme
+### 个人博客存档 A simple style hexo theme
