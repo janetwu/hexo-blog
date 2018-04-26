@@ -1,0 +1,34 @@
+<footer class="boxed">
+	<span>© 2018 janet wu | powered by Hexo</span>
+</footer>
+<a id="scrolltop">
+    <span class="icon">
+      <i class="upArrow"></i>
+    </span>
+</a>
+<script type="text/javascript" src="<%= site.baseurl %>/js/jquery-1.9.1.min.js"></script>
+<script>
+  $(function(){
+    
+    var $scrolltopBtn = $('#scrolltop'),
+        _timeoutId;
+    $(window).scroll(function () {
+      if(_timeoutId){
+        clearTimeout(_timeoutId);
+      }
+      _timeoutId =  setTimeout(function(){
+          if ($(this).scrollTop() > 100) {
+            $scrolltopBtn.fadeIn();
+          } else {
+            $scrolltopBtn.fadeOut();
+          }
+        }, 100);
+    });
+    $scrolltopBtn.click(function () {
+      $('body,html').animate({
+        scrollTop: 0
+      }, 800);
+      return false;
+    });
+  });
+</script>

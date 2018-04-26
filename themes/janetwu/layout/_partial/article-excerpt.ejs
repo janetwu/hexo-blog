@@ -1,0 +1,29 @@
+<% if(page.posts.length == index+1){ %>
+<article class="last">
+<% }else{ %>
+<article>
+<% } %>
+    <h1>
+        <a href="<%- config.root %><%- item.path %>">
+            <%- item.title %> 
+        </a>
+    </h1>
+  <p class="meta">
+    <time datetime='<%= item.date.format(config.date_format) %>'>
+        <svg class="icon icon-clock"><use xlink:href="#icon-clock"></use></svg>
+        <%= item.date.format(config.date_format) %>
+    </time>
+    <%- partial('_partial/article-tags') %>
+    <!-- Content -->
+    <%- item.excerpt || item.content %>
+    <!-- Only display the Read More link if we are displaying an excerpt -->
+    <% if(item.excerpt) { %>
+        <p>......</p>
+        <p>
+            <a href="<%- config.root %><%- item.path %>">
+                <%= theme.excerpt_link %>
+            </a>
+        </p>
+    <% } %>
+</article>
+

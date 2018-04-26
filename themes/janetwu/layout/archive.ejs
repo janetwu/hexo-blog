@@ -1,0 +1,23 @@
+<article>
+    <h1>Archive</h1>
+    <nav class="archive-list">
+    <%
+        var years = {};
+        var htmls = [];
+        page.posts.each(function(item){ 
+            var _year = item.date.format('YYYY'); 
+            if(!years[_year]){
+                years[_year] = [];
+            }
+            years[_year].push('<li><a href="'+config.root+item.path +'"><span class="date">'+ item.date.format('MM/DD') +'</span>'+ item.title +'</a></li>');
+        });
+        for(var item in years){
+            var _html = '<h2 class="year"><span class="num">'+ item +'</span></h2><ul>';
+            _html += years[item].join('');
+            _html += '</ul>';
+            htmls.push(_html);
+        }
+    %>
+    <%- htmls.reverse().join(''); %>
+</article>
+

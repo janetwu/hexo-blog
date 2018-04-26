@@ -1,0 +1,20 @@
+<% if (item.tags && item.tags.length){ %>
+<%
+    var tags = [];
+    item.tags.forEach(function(tag){
+    	
+    	var _oTags = tag.name.split(' ');
+    	_oTags.forEach(function(oTag){console.log(oTag)
+    		//tags.push('<a href="' + config.root +'tags/#'+ oTag + '">#' + oTag + '</a>');
+            tags.push(oTag);
+
+    	});
+        
+    });
+    console.log(tags)
+%>
+<span>
+    <svg class="icon icon-price-tags"><use xlink:href="#icon-price-tags"></use></svg>
+</span>
+<%- tags.join(' ') %>
+<% } %>
